@@ -171,7 +171,7 @@ class TelRecordService(binding: FlutterPlugin.FlutterPluginBinding) : EventChann
 
     private fun diffCallLog(): MCallLog? {
         val callLog = getCallLog()
-        if (callLog != null && callLog.isNotEmpty) {
+        if (callLog != null && callLog.isNotEmpty()) {
             if (callLog.dateLong - time!! > -5 * 1000) {
                 LogUtils.e("通话时长: ${callLog.duration}", "号码：${callLog.number}", "联系人：${callLog.name}", "时间：${callLog.date}")
                 return callLog
