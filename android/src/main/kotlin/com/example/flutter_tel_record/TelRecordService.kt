@@ -57,6 +57,7 @@ class TelRecordService(binding: FlutterPlugin.FlutterPluginBinding) : EventChann
             }
         }
         telephonyManager?.listen(phoneStateListener as MyPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE)
+        time = System.currentTimeMillis()
     }
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
@@ -237,7 +238,7 @@ class TelRecordService(binding: FlutterPlugin.FlutterPluginBinding) : EventChann
 //        super.onCreate()
 //    }
 //
-//    override fun onDestroy() {
+   override fun onDestroy() {
 //        try {
 //            if (myBroadcast != null) {
 //                unregisterReceiver(myBroadcast)
@@ -245,8 +246,11 @@ class TelRecordService(binding: FlutterPlugin.FlutterPluginBinding) : EventChann
 //        } catch (e: Exception) {
 //            e.printStackTrace()
 //        }
-//        super.onDestroy()
-//    }
+       telephonyManager.listen(phoneStateListener as MyPhoneStateListener, PhoneStateListener.LISTEN_NONE)
+       telephonyManager = null
+       phoneStateListener = null
+       super.onDestroy()
+   }
 }
 
 class MCallLog {
