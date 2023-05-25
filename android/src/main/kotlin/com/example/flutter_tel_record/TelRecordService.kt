@@ -245,7 +245,7 @@ class TelRecordService(binding: FlutterPlugin.FlutterPluginBinding) : EventChann
 //        super.onCreate()
 //    }
 //
-   override fun onDestroy() {
+//    override fun onDestroy() {
 //        try {
 //            if (myBroadcast != null) {
 //                unregisterReceiver(myBroadcast)
@@ -253,12 +253,12 @@ class TelRecordService(binding: FlutterPlugin.FlutterPluginBinding) : EventChann
 //        } catch (e: Exception) {
 //            e.printStackTrace()
 //        }
-       telephonyManager.listen(phoneStateListener as MyPhoneStateListener, PhoneStateListener.LISTEN_NONE)
-       telephonyManager = null
-       phoneStateListener = null
-       super.onDestroy()
-   }
-}
+//        telephonyManager.listen(phoneStateListener as MyPhoneStateListener, PhoneStateListener.LISTEN_NONE)
+//        telephonyManager = null
+//        phoneStateListener = null
+//        super.onDestroy()
+//    }
+// }
 
 class MCallLog {
     var name: String? = ""
